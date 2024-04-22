@@ -258,14 +258,14 @@
             </div>
             <div class="options">
               <div class="tab-container">
-                <input type="radio" name="tab" id="tab1" class="tab tab--1" />
-                <label class="tab_label" for="tab1">Task controle</label>
+                <!-- <input type="radio" name="tab" id="tab1" class="tab tab--1" /> -->
+                <a class="tab_label" href="#task-read">Task controle</a>
 
-                <input type="radio" name="tab" id="tab2" class="tab tab--2" />
-                <label class="tab_label" for="tab2">Chat With AI</label>
+                <!-- <input type="radio" name="tab" id="tab2" class="tab tab--2" /> -->
+                <a class="tab_label" href="#chatting-ai">Chat With AI</a>
 
-                <input type="radio" name="tab" id="tab3" class="tab tab--3" />
-                <label class="tab_label" for="tab3">Chat with Members</label>
+                <!-- <input type="radio" name="tab" id="tab3" class="tab tab--3" /> -->
+                <a class="tab_label" href="#chatting-member">Chat with Members</a>
 
                 <div class="indicator"></div>
               </div>
@@ -294,18 +294,31 @@
               </div>
               <div class="task-members">
                 <h4>Members</h4>
-                <div class="mems-icons">
-                  <img src="assets/img/Av1.png " alt="MemberIcon">
-                  <img src="assets/img/Av1.png " alt="MemberIcon">
-                  <img src="assets/img/Av1.png " alt="MemberIcon">
-                  <img src="assets/img/Av1.png " alt="MemberIcon">
-                  <img src="assets/img/Av1.png " alt="MemberIcon">
+                <div class="matiralBox">
+                  <div class="member m1">
+                    <img src="assets/img/3dAvatare.png " width="20" height="20" alt="MemberIcon">
+                    <span class="member-name">ammar_ahmed</span>
+                  </div>
+                  <div class="member m2">
+                    <img src="assets/img/3dAvatare.png " width="20" height="20" alt="MemberIcon">
+                    <span class="member-name">ammar_ahmed</span>
+                  </div>
+                  <div class="member m3">
+                    <img src="assets/img/3dAvatare.png " width="20" height="20" alt="MemberIcon">
+                    <span class="member-name">ammar_ahmed</span>
+                  </div>
+                  <div class="member m4">
+                    <img src="assets/img/3dAvatare.png " width="20" height="20" alt="MemberIcon">
+                    <span class="member-name">ammar_ahmed</span>
+                  </div>
                 </div>
               </div>
               <div class="task-deadline">
                 <h4>Dead Line</h4>
-                <button class="dateTime-contaner">
-                  <input type="checkbox" name="" id="">
+                <button class="dateTime-contaner" onclick="checking()">
+                  <div class="center">
+                    <input name="" class="checker" type="checkbox">
+                  </div>
                   <span>today at 1:00 PM</span>
                   <span class="status">Due soon</span>
                 </button>
@@ -315,24 +328,24 @@
                 <div class="matiralBox">
                   <div id="mt-1" class="material">
                     <div class="text-titles">
-                      <a class="title" target="_blank" href="https://google.com">Digkstra(V2).pptx</a>
-                      <div class="suptitle">PowerPoint</div>
+                      <a class="title" target="_blank" href="https://google.com">Portofolio</a>
+                      <div class="suptitle">Word</div>
                     </div>
 
                     <img src="assets/img/107,70.png" alt="thumbnail" class="thumbnail">
                   </div>
                   <div id="mt-1" class="material">
                     <div class="text-titles">
-                      <a class="title" target="_blank" href="https://google.com">Digkstra(V2).pptx</a>
-                      <div class="suptitle">PowerPoint</div>
+                      <a class="title" target="_blank" href="https://google.com">Portofolio</a>
+                      <div class="suptitle">Word</div>
                     </div>
 
                     <img src="assets/img/107,70.png" alt="thumbnail" class="thumbnail">
                   </div>
                   <div id="mt-1" class="material">
                     <div class="text-titles">
-                      <a class="title" target="_blank" href="https://google.com">Digkstra(V2).pptx</a>
-                      <div class="suptitle">PowerPoint</div>
+                      <a class="title" target="_blank" href="https://google.com">Portofolio</a>
+                      <div class="suptitle">Word</div>
                     </div>
 
                     <img src="assets/img/107,70.png" alt="thumbnail" class="thumbnail">
@@ -343,7 +356,7 @@
 
             </section>
 
-            <section class="chatting-container" id="chatting">
+            <section class="chatting-container" id="chatting-ai">
               <div class="nav-bar">
                 <a>Chat on Task 'Name'</a>
               </div>
@@ -361,9 +374,9 @@
                 </svg>
               </div>
             </section>
-            <section class="chatting-container" id="chatting">
+            <section class="chatting-container" id="chatting-member">
               <div class="nav-bar">
-                <a>Chat on Task 'Name'</a>
+                <a>Chatting With your Team Mates</a>
               </div>
               <div class="messages-area">
                 <div class="message"></div>

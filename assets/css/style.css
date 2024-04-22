@@ -400,6 +400,7 @@ main {
         padding: 10px 3px;
         gap: 7px;
         width: 100%;
+        padding: 10px;
         /* height: 90px; */
         flex: none;
         order: 0;

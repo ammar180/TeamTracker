@@ -12,3 +12,15 @@ items.forEach((e) => {
         slc.classList.add("active");
     });
 });
+const tapLabels = document.querySelectorAll(".tab-container .tab_label");
+const indicator = document.querySelector(".tab-container .indicator");
+
+tapLabels.forEach((e, inx) => {
+    e.addEventListener("click", (event) => {
+        indicator.style.left = `${150 * inx +2}px`;
+    })
+});
+function checking(){
+    let ch = document.querySelector('.checker');
+    ch.checked = !ch.checked;
+}

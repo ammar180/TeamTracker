@@ -3479,11 +3479,11 @@ u,
     --color-warning-dark-h: 46;
     --color-warning-dark-s: 100%;
     --color-warning-dark-l: 51%;
-    --color-warning: hsl(46, 100%, 61%);
+    --color-warning: #ffd138;
     --color-warning-h: 46;
     --color-warning-s: 100%;
     --color-warning-l: 61%;
-    --color-warning-light: hsl(46, 100%, 71%);
+    --color-warning-light: #ffdc6b;
     --color-warning-light-h: 46;
     --color-warning-light-s: 100%;
     --color-warning-light-l: 71%;

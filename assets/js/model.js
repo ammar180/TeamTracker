@@ -24,21 +24,24 @@ const project =
 						phaseDescription: " View users and their behavior in the context of their lives",
 						due: Date.now(),
 						matirials: ["https//githup.com"],
-						supPhase: []
+						supPhase: [],
+						tasks:[Task]
 					},
 					{
 						phaseName: "Engage",
 						phaseDescription: "Interact with and interview users through both scheduled and short 'intercept' encounters.",
 						due: Date.now(),
 						matirials: ["https//githup.com"],
-						supPhase: []
+						supPhase: [],
+						tasks:[Task]
 					},
 					{
 						phaseName: "Immerse",
 						phaseDescription: "Experience your user experiences.",
 						due: Date.now(),
 						matirials: ["https//githup.com"],
-						supPhase: []
+						supPhase: [],
+						tasks:[Task]
 					}
 				]
 			},
@@ -53,14 +56,16 @@ const project =
 						phaseDescription: "all the collected data during the previous phase.",
 						due: Date.now(),
 						matirials: ["https//githup.com"],
-						supPhase: []
+						supPhase: [],
+						tasks:[Task]
 					},
 					{
 						phaseName: "Define",
 						phaseDescription: "the actionable problem statement from a human-centric perspective.",
 						due: Date.now(),
 						matirials: ["https//githup.com"],
-						supPhase: []
+						supPhase: [],
+						tasks:[Task]
 					},
 				]
 			},
@@ -75,7 +80,8 @@ const project =
 						phaseDescription: "radical design alternatives. Mentally it represents a process of  “going wide” in terms of concepts and outcomes—it is a mode of “flaring” rather than “focus” using the suitable techniques among your group.",
 						due: Date.now(),
 						matirials: ["https//githup.com"],
-						supPhase: []
+						supPhase: [],
+						tasks:[Task]
 					},
 				]
 			},
@@ -90,14 +96,16 @@ const project =
 						phaseDescription: " prototype can be anything that takes a physical form – be it a wall of post-it notes, a role-playing activity, a space, an object, an interface, or even a storyboard. The resolution of your prototype should be commensurate with your progress in your project.",
 						due: Date.now(),
 						matirials: ["https//githup.com"],
-						supPhase: []
+						supPhase: [],
+						tasks:[Task]
 					},
 					{
 						phaseName: "Build",
 						phaseDescription: " In early explorations keep your prototypes rough and rapid to allow yourself to learn quickly and investigate a lot of different possibilities.",
 						due: Date.now(),
 						matirials: ["https//githup.com"],
-						supPhase: []
+						supPhase: [],
+						tasks:[Task]
 					},
 				]
 			},
@@ -112,21 +120,24 @@ const project =
 						phaseDescription: " collect users' feedback",
 						due: Date.now(),
 						matirials: ["https//githup.com"],
-						supPhase: []
+						supPhase: [],
+						tasks:[Task]
 					},
 					{
 						phaseName: "Analyze",
 						phaseDescription: " understand the feedback",
 						due: Date.now(),
 						matirials: ["https//githup.com"],
-						supPhase: []
+						supPhase: [],
+						tasks:[Task]
 					},
 					{
 						phaseName: "Refine",
 						phaseDescription: "make better solutions (iterative methodology).",
 						due: Date.now(),
 						matirials: ["https//githup.com"],
-						supPhase: []
+						supPhase: [],
+						tasks:[Task]
 					},
 				]
 			}
