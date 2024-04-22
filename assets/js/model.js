@@ -25,7 +25,9 @@ const project =
 						due: Date.now(),
 						matirials: ["https//githup.com"],
 						supPhase: [],
-						tasks:[Task]
+						tasks:[Task],
+						supTasks: [],
+						members: []
 					},
 					{
 						phaseName: "Engage",
@@ -33,7 +35,9 @@ const project =
 						due: Date.now(),
 						matirials: ["https//githup.com"],
 						supPhase: [],
-						tasks:[Task]
+						tasks:[Task],
+						supTasks: [],
+						members: []
 					},
 					{
 						phaseName: "Immerse",
@@ -41,7 +45,9 @@ const project =
 						due: Date.now(),
 						matirials: ["https//githup.com"],
 						supPhase: [],
-						tasks:[Task]
+						tasks:[Task],
+						supTasks: [],
+						members: []
 					}
 				]
 			},
@@ -57,7 +63,9 @@ const project =
 						due: Date.now(),
 						matirials: ["https//githup.com"],
 						supPhase: [],
-						tasks:[Task]
+						tasks:[Task],
+						supTasks: [],
+						members: []
 					},
 					{
 						phaseName: "Define",
@@ -65,7 +73,9 @@ const project =
 						due: Date.now(),
 						matirials: ["https//githup.com"],
 						supPhase: [],
-						tasks:[Task]
+						tasks:[Task],
+						supTasks: [],
+						members: []
 					},
 				]
 			},
@@ -81,7 +91,9 @@ const project =
 						due: Date.now(),
 						matirials: ["https//githup.com"],
 						supPhase: [],
-						tasks:[Task]
+						tasks:[Task],
+						supTasks: [],
+						members: []
 					},
 				]
 			},
@@ -97,7 +109,9 @@ const project =
 						due: Date.now(),
 						matirials: ["https//githup.com"],
 						supPhase: [],
-						tasks:[Task]
+						tasks:[Task],
+						supTasks: [],
+						members: []
 					},
 					{
 						phaseName: "Build",
@@ -105,7 +119,9 @@ const project =
 						due: Date.now(),
 						matirials: ["https//githup.com"],
 						supPhase: [],
-						tasks:[Task]
+						tasks:[Task],
+						supTasks: [],
+						members: []
 					},
 				]
 			},
@@ -121,7 +137,9 @@ const project =
 						due: Date.now(),
 						matirials: ["https//githup.com"],
 						supPhase: [],
-						tasks:[Task]
+						tasks:[Task],
+						supTasks: [],
+						members: []
 					},
 					{
 						phaseName: "Analyze",
@@ -129,7 +147,9 @@ const project =
 						due: Date.now(),
 						matirials: ["https//githup.com"],
 						supPhase: [],
-						tasks:[Task]
+						tasks:[Task],
+						supTasks: [],
+						members: []
 					},
 					{
 						phaseName: "Refine",
@@ -137,7 +157,9 @@ const project =
 						due: Date.now(),
 						matirials: ["https//githup.com"],
 						supPhase: [],
-						tasks:[Task]
+						tasks:[Task],
+						supTasks: [],
+						members: []
 					},
 				]
 			}

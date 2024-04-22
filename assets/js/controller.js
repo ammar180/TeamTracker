@@ -23,6 +23,7 @@ function createLI(ph, id) {
 
         lap.classList.add("cd-accordion__label", "cd-accordion__label--icon-folder");
         lap.htmlFor = id;
+        lap.id = id;
         // console.log(id);
 
         sp.innerHTML = ph.phaseName;
@@ -35,13 +36,14 @@ function createLI(ph, id) {
         level = id.split('-').length - 1;
         let supPrt = createUL(true, level);
         ph.supPhase.forEach((step, inx) => {
-            let supLI = createLI(step, `${id}-step${inx}`);
+            let supLI = createLI(step, `${id}${inx}-`);
             supPrt.appendChild(supLI);
         });
         li.appendChild(supPrt);
     } else {
         let _btn = document.createElement('a');
         _btn.classList.add("cd-accordion__label", "cd-accordion__label--icon-img", "w-100", "h-100");
+        _btn.id = id;
         let _span = document.createElement('span');
 
         _span.innerHTML = ph.phaseName;
@@ -56,17 +58,32 @@ function createLI(ph, id) {
 function generateRM() {
     let pairant = createUL(false);
     User.projects[0].project_roadMap.forEach((phase, inx) => {
-        let children = createLI(phase, `phase-${inx}`);
+        let children = createLI(phase, `${inx}-`);
         pairant.appendChild(children);
     });
     document.querySelector('.RM-contaner').appendChild(pairant);
 }
-function getDetails(){
+function getTargetPhase(selecteID) {
+    let targetPhase = User.projects[0].project_roadMap;
+    let result;
+    selecteID.split('-').forEach((e, i) => {
+        console.log(e);
+        // if (i == 0)
+        //     targetPhase = this.targetPhase[e];
+        // else
+        //     targetPhase = this.targetPhase.supPhase[e];
+
+        result = targetPhase;
+    });
+    return result;
+}
+function getDetails() {
     const RMoptions = document.querySelectorAll('.cd-accordion__label');
+
     RMoptions.forEach((option, inx) => {
-        option.addEventListener("click", (event) => {
-            console.log(inx);
-        })
+        option.addEventListener("click", () => {
+            console.log(getTargetPhase(option.id));
+        });
     });
 }
 
