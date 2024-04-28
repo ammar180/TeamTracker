@@ -33,10 +33,10 @@ function createLI(ph, id) {
         li.appendChild(inpu);
         li.appendChild(lap);
 
-        level = id.split('-').length - 1;
+        level = id.split('-').length;
         let supPrt = createUL(true, level);
         ph.supPhase.forEach((step, inx) => {
-            let supLI = createLI(step, `${id}${inx}-`);
+            let supLI = createLI(step, `${id}-${inx}`);
             supPrt.appendChild(supLI);
         });
         li.appendChild(supPrt);
@@ -58,7 +58,7 @@ function createLI(ph, id) {
 function generateRM() {
     let pairant = createUL(false);
     User.projects[0].project_roadMap.forEach((phase, inx) => {
-        let children = createLI(phase, `${inx}-`);
+        let children = createLI(phase, `${inx}`);
         pairant.appendChild(children);
     });
     document.querySelector('.RM-contaner').appendChild(pairant);
@@ -67,11 +67,11 @@ function getTargetPhase(selecteID) {
     let targetPhase = User.projects[0].project_roadMap;
     let result;
     selecteID.split('-').forEach((e, i) => {
-        console.log(e);
-        // if (i == 0)
-        //     targetPhase = this.targetPhase[e];
-        // else
-        //     targetPhase = this.targetPhase.supPhase[e];
+        // console.log(parseInt(e));
+        if (i == 0)
+            targetPhase = targetPhase[e];
+        else
+            targetPhase = targetPhase.supPhase[parseInt(e)];
 
         result = targetPhase;
     });

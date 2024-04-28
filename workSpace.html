@@ -116,7 +116,7 @@
             <div class="title w-100">Design Thinking Process</div>
             <div class="time w-100">2 days remaining Back</div>
           </div>
-          
+
         </div>
         <div class="tasksGrid border-black-1px" id="container">
           <h3 class="heads">New Tasks</h3>
@@ -188,7 +188,7 @@
         <div class="controls h-100">
           <div class="title-section">
             <div class="title">
-              Details and Controllers <span><img src="assets/img/cd-edit.svg" alt=""></span>
+              Details and Controllers <span><a href="#task-write"><img src="assets/img/cd-edit.svg" alt=""></a></span>
             </div>
             <div class="options">
               <div class="tab-container">
@@ -289,6 +289,53 @@
               </div>
 
             </section>
+            
+            <section class="task-read task-write" id="task-write">
+              <div class="task-info w-100">
+                <div class="info-name">
+                  <div class="input-container">
+                    <input type="text" class="failed" id="input" required="">
+                    <label for="input" class="label">Phase Name</label>
+                    <div class="underline"></div>
+                  </div>
+                  <button class="curs-p">Done👌</button>
+                </div>
+                <div class="info-desc w-100">
+                  <div class="input-container">
+                    <textarea name="input" class="failed" id="input" cols="1" required=""></textarea>
+                    <label for="input" class="label">Phase Description</label>
+                    <div class="underline"></div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="task-members">
+                <h4>Members</h4>
+                <div class="matiralBox">
+                  <div class="member curs-p">
+                    <span class="member-name">Add</span>
+                  </div>
+                </div>
+              </div>
+              <div class="task-deadline">
+                <h4>Dead Line</h4>
+                <button class="dateTime-contaner" onclick="">
+                  <span id="seleced-date"><input type="datetime-local" name="TDT" id="task-date-time"></span>
+                  <!-- <span class="status">Due soon</span> -->
+                </button>
+              </div>
+              <div class="task-matrials">
+                <h4>Matrials</h4>
+                <div class="matiralBox">
+                  <div id="matiral-add" class="material">
+                    <div class="text-titles">
+                      <span class="title curs-p">ADD</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </section>
 
             <section class="chatting-container" id="chatting-ai">
               <div class="nav-bar">
@@ -326,6 +373,7 @@
                 </svg>
               </div>
             </section>
+
           </div>
         </div>
 

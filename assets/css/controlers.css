@@ -149,7 +149,7 @@ h4 {
         display: flex;
         flex-direction: row;
         width: 100%;
-        overflow: hidden;
+        overflow: auto;
         position: relative;
         gap: 3px;
 
@@ -337,6 +337,83 @@ h4 {
             }
         }
 
+        .task-write {
+            overflow-x:hidden ;
+            .task-info {
+                .input-container {
+                    position: relative;
+                    width: 200px;
+                    margin: 15px 0;
+                }
+
+                .input-container .failed {
+                    font-size: 20px;
+                    width: 100%;
+                    border: none;
+                    color: white;
+                    border-bottom: 2px solid #ccc;
+                    padding: 5px 0;
+                    background-color: transparent;
+                    outline: none;
+                }
+                textarea{
+                    height: 32px;
+                }
+
+                .input-container .label {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    color: #ccc;
+                    transition: all 0.3s ease;
+                    pointer-events: none;
+                }
+
+                .input-container .failed:focus~.label,
+                .input-container .failed:valid~.label {
+                    top: -20px;
+                    font-size: 16px;
+                    color: white;
+                }
+
+                .input-container .underline {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    height: 2px;
+                    width: 100%;
+                    background-color: white;
+                    transform: scaleX(0);
+                    transition: all 0.3s ease;
+                }
+
+                .input-container .failed:focus~.underline,
+                .input-container .failed:valid~.underline {
+                    transform: scaleX(1);
+                }
+                .info-name{
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    button{
+                        font-size: 16px;
+                        padding: 5px;
+                        background-color: transparent;
+                        border: 2px solid #376cd2;
+                        border-radius: 5px;
+                        height: fit-content;
+                        color: white;
+                    }
+                }
+                .info-desc{
+                    margin-left: 0;
+                    .input-container{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
         .chatting-container {
             background-color: #343541;
             border-radius: 8px;
@@ -435,7 +512,10 @@ h4 {
         -webkit-appearance: none;
         outline: none;
         transition: 0.4s;
-        
+    }
+    #task-date-time{
+        background-color: transparent;
+        border: none;
     }
 
     input[type="checkbox"]:before {
