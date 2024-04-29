@@ -77,12 +77,54 @@ function getTargetPhase(selecteID) {
     });
     return result;
 }
+function appendDetails(obj, type = "phase") {
+    //info
+    document.querySelector(".cards .task-read .info-name").innerHTML = obj[`${type}Name`];
+    document.querySelector(".cards .task-read .info-desc").innerHTML = obj[`${type}Description`];
+
+    // members
+    if (type == "task") {
+        document.querySelector(".cards .task-read .task-members").style.visibility = 'visible';
+        let membersBox = document.querySelector(".cards .task-read .task-members .matiralBox");
+        obj["members"].forEach((e, inx) => {
+            let divMem = document.createElement('div');
+            divMem.classList.add("member");
+            divMem.id = `m${inx}`;
+
+            let imgIco = document.createElement('img');
+            imgIco.src = e.profileIcon;
+
+            let spMemName = document.createElement('span');
+            spMemName.innerHTML = e.userName;
+            spMemName.classList.add("member-name");
+
+            divMem.appendChild(imgIco);
+            divMem.appendChild(spMemName);
+            membersBox.appendChild(divMem);
+        });
+    }
+    else
+        document.querySelector(".cards .task-read .task-members").style.visibility = 'hidden';
+
+    // DateTime
+    document.querySelector(".cards .task-read .task-deadline span:not(.status)").innerHTML = obj.due;
+    let spStatus = document.querySelector(".cards .task-read .task-deadline .status");
+    if (obj.due < Date.now()){
+        spStatus.innerHTML = "Due soon";
+        spStatus.style.background = "#ffbc57";
+    }
+    else{
+        spStatus.innerHTML = "Pasted";
+        spStatus.style.background = "red";
+    }
+
+}
 function getDetails() {
     const RMoptions = document.querySelectorAll('.cd-accordion__label');
 
     RMoptions.forEach((option, inx) => {
         option.addEventListener("click", () => {
-            console.log(getTargetPhase(option.id));
+            appendDetails(getTargetPhase(option.id));
         });
     });
 }
