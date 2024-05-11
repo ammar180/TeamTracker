@@ -364,6 +364,17 @@ main {
             /* background-color: #fff; */
             min-width: 100%;
         }
+
+        .adding-btn {
+            font-size: 16px;
+            padding: 5px;
+            background-color: transparent;
+            border: 2px solid #376cd2;
+            border-radius: 5px;
+            height: fit-content;
+            color: white;
+            cursor: pointer;
+        }
     }
 
 }

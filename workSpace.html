@@ -115,8 +115,11 @@
           <div class="RM-info">
             <div class="title w-100">Design Thinking Process</div>
             <div class="time w-100">2 days remaining Back</div>
+            <button id="add-phase-btn" class="adding-btn"><a href="#task-write" style="color: white;">Add</a></button>
           </div>
+          <div class="RM-body w-100 h-100">
 
+          </div>
         </div>
         <div class="tasksGrid border-black-1px" id="container">
           <h3 class="heads">New Tasks</h3>
@@ -209,9 +212,10 @@
           <div class="cards">
             <section class="task-read" id="task-read">
               <div class="task-info">
-                <div class="info-name">Emphasize</div>
+                <div class="info-name">Name</div>
                 <div class="info-desc">
                   DESCRIPTION
+                  <!-- 
                   <ul>
                     <li>Who are the users to be observed? What are their needs Record and visualize
                       these observations.</li>
@@ -223,13 +227,13 @@
                       solutions to fit these needs?</li>
                     <li>What are the requirements would you take into consideration for tailoring
                       solutions to fit these needs?</li>
-                  </ul>
+                  </ul> --> 
                 </div>
               </div>
               <div class="task-members">
                 <h4>Members</h4>
                 <div class="matiralBox">
-                  <div class="member m1">
+                  <!-- <div class="member m1">
                     <img src="assets/img/3dAvatare.png " width="20" height="20" alt="MemberIcon">
                     <span class="member-name">ammar_ahmed</span>
                   </div>
@@ -244,7 +248,7 @@
                   <div class="member m4">
                     <img src="assets/img/3dAvatare.png " width="20" height="20" alt="MemberIcon">
                     <span class="member-name">ammar_ahmed</span>
-                  </div>
+                  </div> -->
                 </div>
               </div>
               <div class="task-deadline">
@@ -253,57 +257,33 @@
                   <div class="center">
                     <input name="" class="checker" type="checkbox">
                   </div>
-                  <span>today at 1:00 PM</span>
-                  <span class="status">Due soon</span>
+                  <span></span>
+                  <span class="status"></span>
                 </button>
               </div>
               <div class="task-matrials">
                 <h4>Matrials</h4>
-                <div class="matiralBox">
-                  <div id="mt-1" class="material">
-                    <div class="text-titles">
-                      <a class="title" target="_blank" href="https://google.com">Portofolio</a>
-                      <div class="suptitle">Word</div>
-                    </div>
-
-                    <img src="assets/img/107,70.png" alt="thumbnail" class="thumbnail">
-                  </div>
-                  <div id="mt-1" class="material">
-                    <div class="text-titles">
-                      <a class="title" target="_blank" href="https://google.com">Portofolio</a>
-                      <div class="suptitle">Word</div>
-                    </div>
-
-                    <img src="assets/img/107,70.png" alt="thumbnail" class="thumbnail">
-                  </div>
-                  <div id="mt-1" class="material">
-                    <div class="text-titles">
-                      <a class="title" target="_blank" href="https://google.com">Portofolio</a>
-                      <div class="suptitle">Word</div>
-                    </div>
-
-                    <img src="assets/img/107,70.png" alt="thumbnail" class="thumbnail">
-                  </div>
-
+                <div class="matiralBox">  
                 </div>
               </div>
+              <div><button id="delete-phase-btn" onclick="deletePhase()" class="adding-btn">DELETE</button></div>
 
             </section>
-            
+
             <section class="task-read task-write" id="task-write">
               <div class="task-info w-100">
                 <div class="info-name">
                   <div class="input-container">
-                    <input type="text" class="failed" id="input" required="">
-                    <label for="input" class="label">Phase Name</label>
+                    <input type="text" class="failed" id="input-phaseName" required="">
+                    <label for="input-phaseName" class="label">Phase Name</label>
                     <div class="underline"></div>
                   </div>
-                  <button class="curs-p">Done👌</button>
+                  <button id="done-btn" class="curs-p">Done👌</button>
                 </div>
                 <div class="info-desc w-100">
                   <div class="input-container">
-                    <textarea name="input" class="failed" id="input" cols="1" required=""></textarea>
-                    <label for="input" class="label">Phase Description</label>
+                    <textarea name="input" class="failed" id="input-phaseDesc" cols="1" required=""></textarea>
+                    <label for="input-phaseDesc" class="label">Phase Description</label>
                     <div class="underline"></div>
                   </div>
 
@@ -325,14 +305,8 @@
                 </button>
               </div>
               <div class="task-matrials">
-                <h4>Matrials</h4>
+                <h4>Matrials <button class="adding-btn">ADD</button></h4>
                 <div class="matiralBox">
-                  <div id="matiral-add" class="material">
-                    <div class="text-titles">
-                      <span class="title curs-p">ADD</span>
-                    </div>
-                  </div>
-
                 </div>
               </div>
             </section>

@@ -61,7 +61,7 @@ function generateRM() {
         let children = createLI(phase, `${inx}`);
         pairant.appendChild(children);
     });
-    document.querySelector('.RM-contaner').appendChild(pairant);
+    document.querySelector('.RM-contaner .RM-body').appendChild(pairant);
 }
 function getTargetPhase(selecteID) {
     let targetPhase = User.projects[0].project_roadMap;
@@ -85,6 +85,7 @@ function appendDetails(obj, type = "phase") {
     // members
     if (type == "task") {
         document.querySelector(".cards .task-read .task-members").style.visibility = 'visible';
+        document.querySelector(".cards .task-read .task-members").style.position = 'initial';
         let membersBox = document.querySelector(".cards .task-read .task-members .matiralBox");
         obj["members"].forEach((e, inx) => {
             let divMem = document.createElement('div');
@@ -103,35 +104,119 @@ function appendDetails(obj, type = "phase") {
             membersBox.appendChild(divMem);
         });
     }
-    else
+    else {
+        document.querySelector(".cards .task-read .task-members").style.position = 'absolute';
         document.querySelector(".cards .task-read .task-members").style.visibility = 'hidden';
+    }
 
     // DateTime
     document.querySelector(".cards .task-read .task-deadline span:not(.status)").innerHTML = obj.due;
     let spStatus = document.querySelector(".cards .task-read .task-deadline .status");
-    if (obj.due < Date.now()){
+    if (obj.due < Date.now()) {
         spStatus.innerHTML = "Due soon";
         spStatus.style.background = "#ffbc57";
     }
-    else{
+    else {
         spStatus.innerHTML = "Pasted";
         spStatus.style.background = "red";
     }
 
+    // Matrials
+    let matrialsContainer = document.createElement('div');
+    obj.matirials.forEach((m, inx) => {
+        let divmaterial = document.createElement('div');
+        divmaterial.classList.add("material");
+        divmaterial.id = `mt-${inx}`;
+
+        let divText = document.createElement('div');
+        divText.classList.add("text-titles");
+
+        let title = document.createElement('a');
+        title.classList.add("title");
+        title.target = "_blank";
+        title.innerHTML = m.matName;
+        title.href = m.matURL;
+
+        let supTitle = document.createElement('div');
+        supTitle.classList.add("suptitle");
+        supTitle.innerHTML = "Word";
+
+        let thumbnail = document.createElement('img');
+        thumbnail.classList.add("thumbnail");
+        thumbnail.src = m.matIcon;
+
+        divText.appendChild(title);
+        divText.appendChild(supTitle);
+
+        divmaterial.appendChild(divText);
+        divmaterial.appendChild(thumbnail);
+
+
+        matrialsContainer.appendChild(divmaterial);
+    });
+    document.querySelector("#task-write > div.task-matrials > div").innerHTML = "";
+    document.querySelector("#task-write > div.task-matrials > div").appendChild(matrialsContainer);
+
+    document.querySelector("#task-read > div.task-matrials > div").innerHTML = "";
+    document.querySelector("#task-read > div.task-matrials > div").appendChild(matrialsContainer);
 }
+var currentPhaseID = -1;
 function getDetails() {
     const RMoptions = document.querySelectorAll('.cd-accordion__label');
 
     RMoptions.forEach((option, inx) => {
         option.addEventListener("click", () => {
-            appendDetails(getTargetPhase(option.id));
+            currentPhaseID = option.id;
+            appendDetails(getTargetPhase(currentPhaseID));
         });
     });
 }
+function addNewPhase() {
+    document.getElementById('done-btn').addEventListener("click", (event) => {
+        let obj = {
+            phaseName: document.getElementById("input-phaseName").value,
+            phaseDescription: document.getElementById("input-phaseDesc").value,
+            due: document.getElementById("task-date-time").value,
+            matirials: [
+                {
+                    matName: "Portofolio",
+                    matURL: "https://google.com",
+                    matIcon: "assets/img/107,70.png",
+                },
+            ],
+            supPhase: [],
+            tasks: [],
+        }
+        User.projects[0].project_roadMap.push(obj);
+        document.querySelector('.RM-contaner .RM-body').innerHTML = "";
+        generateRM();
+        getDetails();
+    })
+}
+function deletePhase() {
+    if (currentPhaseID != -1) {
+        let phToDel = getTargetPhase(currentPhaseID);
+        const check = (ph) => {
+            return ph.phaseName != phToDel.phaseName;
+        };
 
+        currentPhaseID.split('-').forEach((e, i) => {
+                User.projects[0].project_roadMap = User.projects[0].project_roadMap.filter(check);
+            if (User.projects[0].project_roadMap.length != e)
+                User.projects[0].project_roadMap[e].supPhase = User.projects[0].project_roadMap[e].supPhase.filter(check);
+        });
+        currentPhaseID = -1;
+    }
+    else
+        window.alert("Please Select phase To Delete");
+
+    document.querySelector('.RM-contaner .RM-body').innerHTML = "";
+    generateRM();
+    getDetails();
+}
 window.onload = function () {
     generateRM();
     // generateTaskGrid();
     getDetails();
-
+    addNewPhase();
 }
