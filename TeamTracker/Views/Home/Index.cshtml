@@ -1,0 +1,26 @@
+﻿@{
+	ViewData["Title"] = "WELCOME";
+}
+
+<section>
+    <div class="welcome-text">
+      <h1>
+        Welcome To <span>Team Tracker</span>
+      </h1>
+    <a href="/Home/Content"> <button id="go-register" style="display: none;">Continue</button></a>
+    </div>
+</section>
+
+@section Scripts{
+	<script>
+        document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+        document.getElementById('go-register').style.display = 'inline-block';
+        }, 5000); 
+        });
+           document.querySelector('.footer').style.display = 'none';
+               document.querySelector('.mt-100p').style.margin = '0';
+        document.querySelector('header').style.display = 'none';
+
+	</script>
+}

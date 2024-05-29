@@ -1,0 +1,54 @@
+﻿@model TeamTracker.Models.Task
+
+<div class="card text-white bg-primary mb-3 border-0 rounded">
+    <div class="card-header rounded-top bg-secondary align-items-center d-flex justify-content-between">
+        <h4>@Model.task_name</h4> <a href="#edite-details"><i class="bi bi-pencil-square h4"></i></a>
+    </div>
+    <div class="card-body">
+        <p class="card-text">@Model.details</p>
+        @{string status  = "secondary";}
+        <h5>Dead Line</h5>
+        <label class="form-check-label btn btn-outline-@status rounded" rounded curs-pointer" for="task-deadline">
+            <input class="form-check-input bg-transparent border-0" type="checkbox" value="done"
+                   id="task-deadline" checked="">
+            @Model.end_date
+        </label>
+        <h5>Members</h5>
+        <div class="w-100 d-flex flex-wrap gap-2 rounded">
+            <div class="badge bg-secondary rounded">
+                <img class="rounded-circle w-3" src="" alt="photo">
+                ammar_ahmed
+            </div>
+            <div class="badge bg-secondary rounded">
+                <img class="rounded-circle w-3" src="" alt="photo">
+                ammar_ahmed
+            </div>
+            <div class="badge bg-secondary rounded">
+                <img class="rounded-circle w-3" src="" alt="photo">
+                ammar_ahmed
+            </div>
+            <div class="badge bg-secondary rounded">
+                <img class="rounded-circle w-3" src="" alt="photo">
+                ammar_ahmed
+            </div>
+        </div>
+        
+        <h5>Matrials</h5>
+        <div class="border p-2 border-secondary w-100 d-flex flex-wrap gap-2 rounded">
+            @if (Model.Materials != null)
+            {
+                @foreach (var mat in Model.Materials)
+                {
+                    <a class="btn p-0 pe-1 d-flex justify-content-start btn-outline-secondary gap-1 rounded"
+                    style="max-width: 12rem; width: fit-content;" href="@mat.materials_URL">
+                        <img src="~/img/thumb.png" class="rounded-start w-25" alt="">
+                        <span class="text-light text-wrap">
+                            @mat.materials_URL
+                            @* @{(mat.materials_URL.Length < 15 ? mat.materials_URL : "mat.materials_URL.Substring(0,12)");} *@
+                        </span>
+                    </a>
+                }
+            }
+        </div>
+    </div>
+</div>

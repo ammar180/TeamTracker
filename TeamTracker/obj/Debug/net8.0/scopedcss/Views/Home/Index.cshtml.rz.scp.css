@@ -1,0 +1,77 @@
+header[b-27bfe23qpd], footer[b-27bfe23qpd]{
+    display:none;
+}
+.wrapper[b-27bfe23qpd] {
+    width: 1170px;
+    margin: auto;
+}
+
+section[b-27bfe23qpd] {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/img/bb.png');
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.welcome-text[b-27bfe23qpd] {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+    .welcome-text h1[b-27bfe23qpd] {
+        text-align: center;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 60px;
+        overflow: hidden;
+        /* Ensures the text is hidden until it is animated */
+        white-space: nowrap;
+        /* Prevents the text from wrapping */
+        border-right: 0.15em solid orange;
+        /* Creates the cursor effect */
+        animation: typing-b-27bfe23qpd 5s steps(30, end), blink-caret-b-27bfe23qpd 0.75s step-end infinite;
+    }
+
+        .welcome-text h1 span[b-27bfe23qpd] {
+            color: rgba(103, 80, 164, 1);
+            font-weight:bolder;
+            font-size:70px;
+        }
+
+#go-register[b-27bfe23qpd] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+    background-color:rgba(103, 80, 164, 1);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@keyframes typing-b-27bfe23qpd {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* Cursor blink animation */
+@keyframes blink-caret-b-27bfe23qpd {
+
+    from, to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: rgb(185, 101, 31);
+    }
+}

@@ -1,0 +1,16 @@
+﻿@model List<TeamTracker.Models.Task>
+@if(Model != null){
+@foreach (var t in Model)
+{
+        <div class="card curs-p taskBox text-white bg-primary rounded" onclick="appendTaskJS(@t.task_ID)">
+			<div class="card-body ">
+            <h4 class="card-title">@t.task_name</h4>
+            <span class="badge bg-success">Success</span>
+            <span class="badge bg-danger">Danger</span>
+            <span class="badge bg-warning">Warning</span>
+            <p class="text-secondary">@t.end_date</p>
+            <p class="card-text">@t.details</p>
+        </div>
+    </div>
+}
+}

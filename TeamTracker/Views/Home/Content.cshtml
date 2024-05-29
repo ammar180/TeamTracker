@@ -1,0 +1,27 @@
+﻿@model IEnumerable<TeamTracker.Models.Project>
+
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+	<img src="~/img/logo-teamWork.png" width="300" height="200"/>
+	<div class="rounded p-3 py-5 mx-auto" style="width:fit-content; background-color:#a962ef;">
+		<h4 class="text-center text-light">Do you have teammates?</h4>
+		<div class="dropdown mt-4">
+			<a class="btn btn-warning btn-lg" asp-controller="Projects" asp-action="Join">Join Project</a>
+			<a class="btn btn-info btn-lg mx-3" asp-controller="Projects" asp-action="Create">New Project</a>
+			<a class="dropdown-toggle btn btn-primary btn-lg rounded" data-bs-toggle="dropdown" href="#" role="button"
+			   aria-haspopup="true" aria-expanded="false">My Projects</a>
+			<div class="dropdown-menu rounded shadow">
+				@foreach (var item in Model)
+				{
+						<a asp-controller="WorkSpace" asp-action="Space" asp-route-id="@item.project_code" class="dropdown-item btn">
+						@Html.DisplayFor(modelItem => item.project_name)
+						</a>
+				}
+			</div>
+		</div>
+
+	</div>
+</div>

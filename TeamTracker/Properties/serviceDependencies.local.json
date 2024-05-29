@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "type": "secrets.user"
+    },
+    "mssql3": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:TeamTrackerContext"
+    },
+    "mssql2": {
+      "serviceConnectorResourceId": "",
+      "secretStore": null,
+      "resourceId": null,
+      "type": "mssql.local",
+      "connectionId": "TeamTrackerContext"
+    }
+  }
+}

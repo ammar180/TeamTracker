@@ -1,0 +1,42 @@
+﻿@model TeamTracker.Models.Phase
+
+
+<form asp-action="editPhase" onsubmit="return PostEditPhase(this);" class="p-2">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="PH_ID" />
+    <input type="hidden" asp-for="pairant_PH" />
+    <input type="hidden" asp-for="ParentPhasePH_ID">
+    <input type="hidden" asp-for="project_code" />
+
+
+    <div class="form-group">
+        <label asp-for="phase_name" class="control-label"></label>
+        <input asp-for="phase_name" class="form-control" />
+        <span asp-validation-for="phase_name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ph_description" class="control-label"></label>
+        <input asp-for="ph_description" class="form-control" />
+        <span asp-validation-for="ph_description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="start_date" class="control-label"></label>
+        <input asp-for="start_date" class="form-control" />
+        <span asp-validation-for="start_date" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="end_date" class="control-label"></label>
+        <input asp-for="end_date" class="form-control" />
+        <span asp-validation-for="end_date" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-2">
+        <input type="submit" value="Save" class="btn btn-outline-info btn-lg w-100 mb-2" />
+        <button class="btn btn-outline-danger btn-lg w-100" onclick="deletePhaseGET(@Model.PH_ID)">Delete</button>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

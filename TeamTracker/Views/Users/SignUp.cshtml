@@ -1,0 +1,172 @@
+﻿@model TeamTracker.Models.User
+
+@{
+    ViewData["Title"] = "Create Account";
+}
+<div id="Registeration-container">
+      <div class="container" id="container">
+    <div class="form-container sign-up">
+      <form id="signupForm">
+        <h1>Create Account</h1>
+
+        <span>or use your email for registration</span>
+        <input type="text" name="name" placeholder="Name">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <button>Sign Up</button>
+        <div class="social-icons">
+          <a href="https://www.google.com" class="icon"><i class="fab fa-google-plus-g"></i></a>
+          <a href="https://github.com" class="icon"><i class="fab fa-github"></i></a>
+        </div>
+      </form>
+    </div>
+    <div class="form-container sign-in">
+      <form>
+        <h1>Sign In</h1>
+        <span>or use your email password</span>
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <button>Sign In</button>
+        <a id="idid" href="/Home/index">Forget Your Password?</a>
+        <div class="social-icons">
+          <a href="https://www.google.com" class="icon"><i class="fab fa-google-plus-g"></i></a>
+          <a href="https://github.com" class="icon"><i class="fab fa-github"></i></a>
+        </div>
+      </form>
+    </div>
+    <div class="toggle-container">
+      <div class="toggle">
+        <div class="toggle-panel toggle-left">
+          <h1>Welcome Back!</h1>
+          <p>Enter your personal details to use all site features</p>
+          <button class="hidden" id="login">Sign In</button>
+        </div>
+        <div class="toggle-panel toggle-right">
+          <h1>Hello, Friend!</h1>
+          <p>Register with your personal details to use all site features</p>
+          <button class="hidden" id="register">Sign Up</button>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        const container = document.getElementById('container');
+const registerBtn = document.getElementById('register');
+const loginBtn = document.getElementById('login');
+const signupForm = document.getElementById('signupForm');
+const signinForm = document.querySelector('.sign-in form');
+
+let signUpSuccess = false;
+
+const users = {};
+
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
+  return emailRegex.test(email);
+}
+
+
+function isStrongPassword(password) {
+  const minLength = 8;
+  const hasUpperCase = /[A-Z]/.test(password);
+  const hasLowerCase = /[a-z]/.test(password);
+  const hasNumber = /[0-9]/.test(password);
+  return password.length >= minLength && hasUpperCase && hasLowerCase && hasNumber;
+}
+
+
+function isValidName(name) {
+  return name.trim() !== '';
+}
+
+registerBtn.addEventListener('click', () => {
+  container.classList.add("active");
+});
+
+loginBtn.addEventListener('click', () => {
+  container.classList.remove("active");
+});
+
+signupForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const name = signupForm.querySelector('input[name="name"]').value;
+  const email = signupForm.querySelector('input[name="email"]').value;
+  const password = signupForm.querySelector('input[name="password"]').value;
+
+
+  if (!isValidName(name)) {
+    alert("Please enter your name.");
+    return;
+  }
+
+ 
+  if (!isValidEmail(email)) {
+    alert("Please enter a valid email address.");
+    return; 
+  }
+
+
+  if (!isStrongPassword(password)) {
+    alert("Password must be at least 8 characters long and include uppercase, lowercase, and numbers.");
+    return;
+  }
+
+ 
+  users[email] = {
+    name: name,
+    password: password 
+  };
+
+  
+  alert("Sign-up successful! Name: " + name);
+  console.log("Sign-up successful! Name:", name, "Email:", email);
+  signUpSuccess = true;
+
+  signupForm.reset();
+});
+
+signinForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const email = signinForm.querySelector('input[name="email"]').value;
+  const password = signinForm.querySelector('input[name="password"]').value;
+
+  
+  if (!email || !password) {
+    alert("Please enter both email and password.");
+    return; // Prevent login if email or password is not entered
+  }
+
+  // Check if sign-up was successful before allowing login
+  if (!signUpSuccess) {
+    alert("Please sign up first!");
+    return; 
+  }
+
+  // Check if email exists in the user database
+  if (!users.hasOwnProperty(email)) {
+    alert("Incorrect Email or password.");
+    return; 
+  }
+
+  // Compare passwords
+  if (users[email].password !== password) {
+    alert("Incorrect Email or password.");
+    return; 
+  }
+
+  alert("Sign-in successful! Email: " + email);
+  console.log("Sign-in successful! Email:", email);
+
+  signinForm.reset(); // Reset the form after successful sign-in
+
+  // Redirect to another page after successful sign-in
+  window.location.href = "/Home/Index"; // Replace with the URL of the page you want to redirect to
+});
+    </script>
+}

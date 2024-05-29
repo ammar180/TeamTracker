@@ -1,0 +1,143 @@
+﻿@{
+    ViewData["Title"] = "Articles Page";
+}
+
+<h1 class="text-center text-primary">Articles</h1>
+<h2 class="text-center text-info">Boost Your Educational Passion</h2>
+<div class="wrapper">
+    <div id="search-container">
+        <input type="search"
+               id="search-input"
+               placeholder="Search product name here.." 
+               class="border border-primary border-top-0 focus-ring focus-ring-light border-start-0 border-end-0 border-bottom bg-transparent" />
+        <button id="search">Search</button>
+    </div>
+    <div id="buttons">
+        <button class="button-value" onclick="filterProduct('all')">All</button>
+        <button class="button-value" onclick="filterProduct('Programming')">
+            Programming
+        </button>
+        <button class="button-value" onclick="filterProduct('Features')">
+            Features
+        </button>
+        <button class="button-value" onclick="filterProduct('Data')">
+            Data
+        </button>
+        <button class="button-value" onclick="filterProduct('Enternishp')">
+            Enternishp
+        </button>
+    </div>
+    <div id="products"></div>
+</div>
+
+@section Scripts{
+    <script>
+        let products = {
+            data: [
+                {
+                    productName: "Web Development",
+                    category: "Programming",
+                    image: "/img/Articles-img/info-icon1.png",
+                    url: "/Articles/WebDevelopment",
+                },
+                {
+                    productName: "SoftWare Development",
+                    category: "Programming",
+                    image: "/img/Articles-img/info-icon2.png",
+                    url: "/Articles/Software",
+                },
+                {
+                    productName: "App Development",
+                    category: "Programming",
+                    image: "/img/Articles-img/info-icon3.png",
+                    url: "/Articles/Deployment",
+                },
+                {
+                    productName: "BMC",
+                    category: "Data",
+                    image: "/img/Articles-img/Modelo de Negocios Canvas.jpeg",
+                    url: "/Articles/BMC",
+                },
+                {
+                    productName: "Road Map",
+                    category: "Features",
+                    image: "/img/Articles-img/Screenshot 2024-04-11 193501.png",
+                    url: "/Articles",
+                },
+                {
+                    productName: "Pomodoro",
+                    category: "Features",
+                    image: "/img/Articles-img/13 Easy Hacks To Open Up More Time In Your Life (1).jpeg",
+                    url: "/Articles/POMODORO",
+                },
+            ],
+        };
+
+        for (let i of products.data) {
+            let card = document.createElement("a");
+            card.setAttribute("href", i.url);
+            card.classList.add("crd", i.category, "collapse", "curs-p");
+
+            let imgContainer = document.createElement("div");
+            imgContainer.classList.add("image-container");
+
+            let image = document.createElement("img");
+            image.setAttribute("src", i.image);
+            image.style.height = "15em";
+            image.style.objectFit = "contain";
+            image.style.maxWidth = "100%";
+            imgContainer.appendChild(image);
+            card.appendChild(imgContainer);
+
+            let container = document.createElement("div");
+            container.classList.add("container");
+
+            let name = document.createElement("h5");
+            name.classList.add("product-name");
+            name.innerText = i.productName.toUpperCase();
+            container.appendChild(name);
+
+            card.appendChild(container);
+            document.getElementById("products").appendChild(card);
+        }
+
+        function filterProduct(value) {
+            let buttons = document.querySelectorAll(".button-value");
+            buttons.forEach((button) => {
+                if (value.toUpperCase() == button.innerText.toUpperCase()) {
+                    button.classList.add("acv");
+                } else {
+                    button.classList.remove("acv");
+                }
+            });
+
+            let elements = document.querySelectorAll(".crd");
+            elements.forEach((element) => {
+                if (value == "all") {
+                    element.classList.remove("collapse");
+                } else {
+                    if (element.classList.contains(value)) {
+                        element.classList.remove("collapse");
+                    } else {
+                        element.classList.add("collapse");
+                    }
+                }
+            });
+        }
+
+        document.getElementById("search").addEventListener("click", () => {
+            let searchInput = document.getElementById("search-input").value;
+            let elements = document.querySelectorAll(".product-name");
+            let cards = document.querySelectorAll(".crd");
+
+            elements.forEach((element, index) => {
+                if (element.innerText.includes(searchInput.toUpperCase())) {
+                    cards[index].classList.remove("collapse");
+                } else {
+                    cards[index].classList.add("collapse");
+                }
+            });
+        });
+        filterProduct("all");
+    </script>
+}

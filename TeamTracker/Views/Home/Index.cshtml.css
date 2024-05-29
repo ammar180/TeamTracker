@@ -1,0 +1,77 @@
+﻿header, footer{
+    display:none;
+}
+.wrapper {
+    width: 1170px;
+    margin: auto;
+}
+
+section {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/img/bb.png');
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.welcome-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+    .welcome-text h1 {
+        text-align: center;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 60px;
+        overflow: hidden;
+        /* Ensures the text is hidden until it is animated */
+        white-space: nowrap;
+        /* Prevents the text from wrapping */
+        border-right: 0.15em solid orange;
+        /* Creates the cursor effect */
+        animation: typing 5s steps(30, end), blink-caret 0.75s step-end infinite;
+    }
+
+        .welcome-text h1 span {
+            color: rgba(103, 80, 164, 1);
+            font-weight:bolder;
+            font-size:70px;
+        }
+
+#go-register {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+    background-color:rgba(103, 80, 164, 1);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* Cursor blink animation */
+@keyframes blink-caret {
+
+    from, to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: rgb(185, 101, 31);
+    }
+}

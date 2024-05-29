@@ -1,0 +1,33 @@
+﻿@model TeamTracker.Models.Phase
+
+<div class="card text-white bg-primary mb-3 border-0 rounded">
+    <div class="card-header rounded-top bg-secondary align-items-center d-flex justify-content-between">
+        <h4>@Model.phase_name</h4> <a onclick="editPhaseGET(@Model.PH_ID)" class="curs-p"><i class="bi bi-pencil-square h4 text-primary"></i></a>
+    </div>
+    <div class="card-body">
+        <p class="card-text">@Model.ph_description</p>
+        <h5>Due</h5>
+        @{string status  = "secondary";}
+        <label class="btn btn-outline-@status rounded" for="task-deadline">
+            Start: <span>@Model.start_date</span>
+            End: <span>@Model.end_date</span>
+        </label>
+        <h5>Matrials</h5>
+        <div class="border p-2 border-secondary w-100 d-flex flex-wrap gap-2 rounded">
+        @if(Model.Materials != null)
+        {
+        @foreach(var mat in Model.Materials)
+        {
+            <a class="btn p-0 pe-1 d-flex justify-content-start btn-outline-secondary gap-1 rounded"
+                style="max-width: 12rem; width: fit-content;" href="@mat.materials_URL">
+                <img src="~/img/thumb.png" class="rounded-start w-25" alt="">
+                <span class="text-light text-wrap">
+                    @mat.materials_URL
+                    @* @{(mat.materials_URL.Length < 15 ? mat.materials_URL : "mat.materials_URL.Substring(0,12)");} *@
+                </span>
+            </a>
+        }
+        }
+        </div>
+    </div>
+</div>
