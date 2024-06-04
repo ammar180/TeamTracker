@@ -33,6 +33,8 @@ public class Task
     [Display(Name = "End Date")]
     public DateTime end_date { get; set; }
 
+    public string status { get; set; }
+
     public Phase Phase { get; set; }
     public List<task_member> TaskMembers { get; set; }
     public List<materials>? Materials { get; set; }

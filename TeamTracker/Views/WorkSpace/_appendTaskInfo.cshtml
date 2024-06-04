@@ -42,9 +42,8 @@
                     <a class="btn p-0 pe-1 d-flex justify-content-start btn-outline-secondary gap-1 rounded"
                     style="max-width: 12rem; width: fit-content;" href="@mat.materials_URL">
                         <img src="~/img/thumb.png" class="rounded-start w-25" alt="">
-                        <span class="text-light text-wrap">
-                            @mat.materials_URL
-                            @* @{(mat.materials_URL.Length < 15 ? mat.materials_URL : "mat.materials_URL.Substring(0,12)");} *@
+                                <span class="text-light text-wrap hover-primary curs-p">
+                            @(mat.materials_URL.Length < 11 ? @mat.materials_URL : $"{ @mat.materials_URL.Substring(8, 18)}..")
                         </span>
                     </a>
                 }

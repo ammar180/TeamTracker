@@ -9,15 +9,15 @@ namespace TeamTracker.Data
 {
     public class TeamTrackerContext : DbContext
     {
-        public TeamTrackerContext (DbContextOptions<TeamTrackerContext> options)
+        public TeamTrackerContext(DbContextOptions<TeamTrackerContext> options)
             : base(options)
         {
             LoggedUserId = 1;
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<project_member>().HasKey(x => new {x.user_ID, x.project_code});
-            modelBuilder.Entity<task_member>().HasKey(x => new {x.user_ID, x.task_ID});
+            modelBuilder.Entity<project_member>().HasKey(x => new { x.user_ID, x.project_code });
+            modelBuilder.Entity<task_member>().HasKey(x => new { x.user_ID, x.task_ID });
             modelBuilder.Entity<Phase>().HasKey(x => x.PH_ID);
         }
         public int LoggedUserId { get; set; }

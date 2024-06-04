@@ -8140,11 +8140,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\IT\\Desktop\\TeamTracker\\TeamTracker\\TeamTracker.csproj",
+      "projectUniqueName": "C:\\Development\\TeamTracker\\TeamTracker\\TeamTracker.csproj",
       "projectName": "TeamTracker",
-      "projectPath": "C:\\Users\\IT\\Desktop\\TeamTracker\\TeamTracker\\TeamTracker.csproj",
+      "projectPath": "C:\\Development\\TeamTracker\\TeamTracker\\TeamTracker.csproj",
       "packagesPath": "C:\\Users\\IT\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\IT\\Desktop\\TeamTracker\\TeamTracker\\obj\\",
+      "outputPath": "C:\\Development\\TeamTracker\\TeamTracker\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\IT\\AppData\\Roaming\\NuGet\\NuGet.Config",

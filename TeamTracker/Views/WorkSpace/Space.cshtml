@@ -1,285 +1,331 @@
 ﻿@model TeamTracker.Models.Project
 
 @{
-    ViewData["Title"] = Model.project_name;
+  ViewData["Title"] = Model.project_name;
 }
 
 <ul class="nav nav-tabs align-items-center justify-content-center" role="tablist">
-    <li class="nav-item" role="presentation">
-        <a class="nav-link active" data-bs-toggle="tab" href="#work-space" aria-selected="true" role="tab">Space</a>
-    </li>
-    <li class="nav-item" role="presentation">
-        <a class="nav-link" data-bs-toggle="tab" href="#calendar" aria-selected="false" role="tab" tabindex="-1">Calendar</a>
-    </li>
-    <li class="nav-item" role="presentation">
-        <a class="nav-link" data-bs-toggle="tab" href="#pomodoro" aria-selected="false" role="tab">Pomodoro</a>
-    </li>
-    <li class="nav-item" role="presentation">
-        <a class="nav-link team-icon" data-bs-toggle="tab" href="#project-info" aria-selected="false" role="tab"></a>
-    </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" data-bs-toggle="tab" href="#work-space" aria-selected="true" role="tab">Space</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" data-bs-toggle="tab" href="#calendar" aria-selected="false" role="tab"
+      tabindex="-1">Calendar</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" data-bs-toggle="tab" href="#pomodoro" aria-selected="false" role="tab">Pomodoro</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link team-icon" data-bs-toggle="tab" href="#project-info" aria-selected="false" role="tab"></a>
+  </li>
 </ul>
 
 <div id="myTabContent" class="tab-content">
-    <section class="tab-pane fade active show" id="work-space">
-        <div class="card w-25">
-            <div class="card-header taskBox">
-                <h3>@Html.DisplayFor(model => model.project_name)</h3>
-                <small class="text-body-secondary">1 year remaining Back</small>
-            </div>
+  <section class="tab-pane fade active show" id="work-space">
+    <div class="card w-25">
+      <div class="card-header taskBox">
+        <h3>@Html.DisplayFor(model => model.project_name)</h3>
+        <small class="text-body-secondary">1 year remaining Back</small>
+      </div>
 
-            <div class="card-body p-0">
-                <div class="accordion" id="accordion-1">
-                    @{
-                        List<Phase> visited = new List<Phase>();
-                        void generate(Phase prt, int i = 1)
-                        {
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading@(prt.PH_ID)">
-                                    <button value="@prt.PH_ID" class="accordion-button getDataButton" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse@(prt.PH_ID)" aria-expanded="true" aria-controls="collapse@(prt.PH_ID)">
-                                        @prt.phase_name
-                                    </button>
-                                </h2>
-                                <div id="collapse@(prt.PH_ID)" class="accordion-collapse collapse" aria-labelledby="heading@(prt.PH_ID)"
-                                     data-bs-parent="#accordion-@i">
-                                    <div class="accordion-body">
-                                        <div class="accordion" id="accordion-@(i+1)">
-                                            @{
-                                                visited.Add(prt);
-                                                prt.ChildPhases = Model.Phase.Where(x => x.pairant_PH == prt.PH_ID).Select(x => x).ToList();
-                                            }
-                                            @foreach (var child in prt.ChildPhases)
-                                                if (!visited.Contains(child))
-                                                    generate(child, i + 1);
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-
-                        if (Model.Phase != null)
-                            foreach (Phase ph in Model.Phase)
-                                if (!visited.Contains(ph))
-                                    generate(ph);
-                    }
-                </div>
-            </div>
-        </div>
-
-        <div class="d-flex justify-content-between p-3 w-100" id="">
-        <div>
-            <h3>New Tasks</h3>
-            <div class="d-flex flex-wrap gap-3 w-100" id="taskDataContainer">
-            </div>
-        </div>
-        <div class="event-form">
-        <h2>Add Event</h2>
-        <form id="addEventForm">
-            <label for="eventTitle">Title:</label>
-            <input type="text" id="eventTitle" required>
-            <label for="eventDate">Date:</label>
-            <input type="date" id="eventDate" required>
-            <label for="eventTime">Time:</label>
-            <input type="time" id="eventTime" required>
-            <button type="submit">Add Event</button>
-        </form>
-            </div>
-        </div>
-        <div class="controld-container" style="width: 60rem;">
-            <ul class="nav nav-tabs w-100" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#read-details" aria-selected="true"
-                        role="tab">Read
-                        Details</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" data-bs-toggle="tab" href="#chate-ai" aria-selected="false" role="tab">Chatting With
-                        AI</a>
-                </li>
-            </ul>
-            <div id="myTabContent" class="tab-content w-100 mt-3">
-                <div class="tab-pane fade w-100 active show" id="read-details" role="tabpanel">
-                    
-                <div class="card text-white bg-primary mb-3 border-0 rounded">
-                        <div class="card-header rounded-top bg-secondary align-items-center d-flex">
-                            <h4>Phase Name</h4>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">Phase Description...</p>
-                            <h5>Due</h5>
-                            @{
-                                string status = "secondary";
-                            }
-                            <label class="btn btn-outline-@status rounded w-100" for="task-deadline"></label>
-                            <h5>Matrials</h5>
-                            <div class="border p-2 border-secondary w-100 d-flex flex-wrap gap-2 rounded">
-                            </div>
-                        </div>
+      <div class="card-body p-0">
+        <div class="accordion" id="accordion-1">
+          @{
+            List<Phase> visited = new List<Phase>();
+            void generate(Phase prt, int i = 1)
+            {
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="heading@(prt.PH_ID)">
+                  <button value="@prt.PH_ID" class="accordion-button getDataButton" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse@(prt.PH_ID)" aria-expanded="true" aria-controls="collapse@(prt.PH_ID)">
+                    @prt.phase_name
+                  </button>
+                </h2>
+                <div id="collapse@(prt.PH_ID)" class="accordion-collapse collapse" aria-labelledby="heading@(prt.PH_ID)"
+                  data-bs-parent="#accordion-@i">
+                  <div class="accordion-body">
+                    <div class="accordion" id="accordion-@(i+1)">
+                      @{
+                        visited.Add(prt);
+                        prt.ChildPhases = Model.Phase.Where(x => x.pairant_PH == prt.PH_ID).Select(x
+                        => x).ToList();
+                      }
+                      @foreach (var child in prt.ChildPhases)
+                        if (!visited.Contains(child))
+                          generate(child, i + 1);
                     </div>
+                  </div>
                 </div>
+              </div>
+            }
 
-                <div class="tab-pane fade w-100" id="chate-ai" role="tabpanel">
-                    <div class="chatting-container" id="chatting-ai">
-                        <div class="nav-bar">
-                            <h5 class="text-light">Chat on Task 'Name'</h5>
-                        </div>
-                        <div class="messages-area">
-                            <div class="message"></div>
-                        </div>
-
-                        <div class="sender-area">
-                            <textarea class="input-place" placeholder="Send a message." class="send-input" name=""
-                                id=""></textarea>
-                            <svg class="curs-p" width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M30.1166 14.1833L15.85 7.04998C6.26662 2.24998 2.33328 6.18331 7.13328 15.7666L8.58328 18.6666C8.99995 19.5166 8.99995 20.5 8.58328 21.35L7.13328 24.2333C2.33328 33.8166 6.24995 37.75 15.85 32.95L30.1166 25.8166C36.5166 22.6166 36.5166 17.3833 30.1166 14.1833ZM24.7333 21.25H15.7333C15.05 21.25 14.4833 20.6833 14.4833 20C14.4833 19.3166 15.05 18.75 15.7333 18.75H24.7333C25.4166 18.75 25.9833 19.3166 25.9833 20C25.9833 20.6833 25.4166 21.25 24.7333 21.25Z"
-                                    fill="white" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            if (Model.Phase != null)
+              foreach (Phase ph in Model.Phase)
+                if (!visited.Contains(ph))
+                  generate(ph);
+          }
         </div>
-    </section>
+      </div>
+    </div>
 
-    <section class="tab-pane fade" role="tabpanel" id="calendar">
-        @*<iframe
-                src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Africa%2FCairo&bgcolor=%23ffffff&showPrint=0&src=MjMxZTExNTI0M2M3MmQ5NzZkZGM3ZjJlZjYzN2I3OGVlYjk4MzRhNmZjNmI2MzAxZjYzMjlhZDI4OWYzMTViOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%233F51B5"
-                class="w-100" frameborder="0"></iframe>*@
-        <div class="calendar-container">
+    <div class="d-flex justify-content-between p-3 w-100" id="">
+      <div>
+        <h3>New Tasks</h3>
+        <div class="d-flex flex-wrap gap-3 w-100" id="taskDataContainer">
+        </div>
+      </div>
+
+      <div class="controld-container" style="width: 32rem;">
+        <ul class="nav nav-tabs w-100" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" data-bs-toggle="tab" href="#read-details" aria-selected="true" role="tab">Read
+              Details</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" data-bs-toggle="tab" href="#chate-ai" aria-selected="false" role="tab">Chatting With
+              AI</a>
+          </li>
+        </ul>
+
+        <div id="myTabContent" class="tab-content w-100 mt-3">
+          <div class="tab-pane fade w-100 active show" id="read-details" role="tabpanel">
+            <div class="card text-white bg-primary mb-3 border-0 rounded">
+              <div class="card-header rounded-top bg-secondary align-items-center d-flex">
+                <h4>Phase Name</h4>
+              </div>
+              <div class="card-body">
+                <p class="card-text">Phase Description...</p>
+                <h5>Due</h5>
+                @{
+                  string status = "secondary";
+                }
+                <label class="btn btn-outline-@status rounded w-100" for="task-deadline"></label>
+                <h5>Matrials</h5>
+                <div class="border p-2 border-secondary w-100 d-flex flex-wrap gap-2 rounded">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade w-100" id="chate-ai" role="tabpanel">
+            <div class="card">
+              <h5 class="card-header text-center">Chat on Task 'Name'</h5>
+
+              <div class="card-body">
+                <div class="d-flex flex-row justify-content-end mb-4">
+                  <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">
+                    Do you have pictures of Matley
+                    Marriage?
+                  </p>
+                </div>
+                <div class="d-flex justify-content-start mb-4">
+                  <p class="small p-2 me-3 mb-1 text-light rounded-3 bg-secondary">
+                    Do you have pictures of Matley
+                    Marriage?
+                  </p>
+                </div>
+              </div>
+
+              <div class="card-footer d-flex align-items-center gap-2">
+                <textarea class="form-control" placeholder="Send a message." id="message-are"></textarea>
+                <h2><i class="bi bi-send curs-p"></i></h2>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+  </section>
+
+  <section class="tab-pane fade" role="tabpanel" id="calendar">
+    @*<iframe
+    src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Africa%2FCairo&bgcolor=%23ffffff&showPrint=0&src=MjMxZTExNTI0M2M3MmQ5NzZkZGM3ZjJlZjYzN2I3OGVlYjk4MzRhNmZjNmI2MzAxZjYzMjlhZDI4OWYzMTViOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%233F51B5"
+    class="w-100" frameborder="0"></iframe>*@
+
+    <div class="d-flex justify-content-between">
+      <div class="calendar-container">
         <div class="calendar-header">
-            <button id="prevMonth">❮</button>
-            <div id="monthYear"></div>
-            <button id="nextMonth">❯</button>
+          <button id="prevMonth">❮</button>
+          <div id="monthYear"></div>
+          <button id="nextMonth">❯</button>
         </div>
         <div class="calendar-body">
-            <div class="day-names">
-                <div>Sun</div>
-                <div>Mon</div>
-                <div>Tue</div>
-                <div>Wed</div>
-                <div>Thu</div>
-                <div>Fri</div>
-                <div>Sat</div>
-            </div>
-            <div class="days" id="calendarDays"></div>
+          <div class="day-names">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+          </div>
+          <div class="days" id="calendarDays"></div>
         </div>
+      </div>
+      <div class="event-form">
+        <h2>Add Event</h2>
+        <form id="addEventForm">
+          <label for="eventTitle">Title:</label>
+          <input type="text" id="eventTitle" required>
+          <label for="eventDate">Date:</label>
+          <input type="date" id="eventDate" required>
+          <label for="eventTime">Time:</label>
+          <input type="time" id="eventTime" required>
+          <button type="submit">Add Event</button>
+        </form>
+      </div>
     </div>
-    </section>
 
-    <section class="tab-pane fade" id="pomodoro">
-        <iframe src="https://pomofocus.io/app" class="w-100" frameborder="0"></iframe>
-    </section>
+  </section>
 
-    <section class="tab-pane fade" id="project-info">
-        <h1>Details</h1>
+  <section class="tab-pane fade" id="pomodoro">
+    <iframe src="https://pomofocus.io/app" class="w-100" frameborder="0"></iframe>
+  </section>
 
-        <div>
-            <h4>Project</h4>
-            <hr />
-            <dl class="row">
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.project_name)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.project_name)
-                </dd>
-            </dl>
-        </div>
-    </section>
+  <section class="tab-pane fade" id="project-info">
+    <h1>Details</h1>
+    <div>
+      <h4>Project</h4>
+      <hr />
+      <dl class="row">
+        <dt class="col-sm-2">
+          @Html.DisplayNameFor(model => model.project_name)
+        </dt>
+        <dd class="col-sm-10">
+          @Html.DisplayFor(model => model.project_name)
+        </dd>
+      </dl>
+    </div>
+  </section>
 </div>
 
-@section Scripts{
-    <script>
-            document.addEventListener('DOMContentLoaded', function() {
-        const monthYearElement = document.getElementById('monthYear');
-        const calendarDaysElement = document.getElementById('calendarDays');
-        const prevMonthButton = document.getElementById('prevMonth');
-        const nextMonthButton = document.getElementById('nextMonth');
-        const addEventForm = document.getElementById('addEventForm');
+@section Scripts {
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const monthYearElement = document.getElementById('monthYear');
+      const calendarDaysElement = document.getElementById('calendarDays');
+      const prevMonthButton = document.getElementById('prevMonth');
+      const nextMonthButton = document.getElementById('nextMonth');
+      const addEventForm = document.getElementById('addEventForm');
 
-        let currentDate = new Date();
-        let events = JSON.parse(localStorage.getItem('events')) || [];
+      let currentDate = new Date();
+      let events = JSON.parse(localStorage.getItem('events')) || [];
 
-        function renderCalendar(date) {
-            const year = date.getFullYear();
-            const month = date.getMonth();
-            const today = new Date();
+      function renderCalendar(date) {
+        const year = date.getFullYear();
+        const month = date.getMonth();
+        const today = new Date();
 
-            monthYearElement.textContent = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+        monthYearElement.textContent = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
-            calendarDaysElement.innerHTML = '';
+        calendarDaysElement.innerHTML = '';
 
-            const firstDayOfMonth = new Date(year, month, 1).getDay();
-            const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const firstDayOfMonth = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-            for (let i = 0; i < firstDayOfMonth; i++) {
-                const emptyDiv = document.createElement('div');
-                emptyDiv.classList.add('empty');
-                calendarDaysElement.appendChild(emptyDiv);
-            }
+        for (let i = 0; i < firstDayOfMonth; i++) {
+          const emptyDiv = document.createElement('div');
+          emptyDiv.classList.add('empty');
+          calendarDaysElement.appendChild(emptyDiv);
+        }
 
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dayDiv = document.createElement('div');
-                dayDiv.textContent = day;
+        for (let day = 1; day <= daysInMonth; day++) {
+          const dayDiv = document.createElement('div');
+          dayDiv.textContent = day;
 
-                const event = events.find(e => e.date === `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`);
-                if (event) {
-                    const eventDiv = document.createElement('div');
-                    eventDiv.classList.add('event');
-                    eventDiv.textContent = event.title;
-                    dayDiv.appendChild(eventDiv);
-                }
+          const event = events.find(e => e.date === ${ year } - ${ String(month + 1).padStart(2, '0')
+        } -${ String(day).padStart(2, '0') });
+    if (event) {
+      const eventDiv = document.createElement('div');
+      eventDiv.classList.add('event');
+      eventDiv.textContent = event.title;
+      dayDiv.appendChild(eventDiv);
+    }
 
-                if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
-                    dayDiv.classList.add('today');
-                }
+    if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+      dayDiv.classList.add('today');
+    }
 
-                calendarDaysElement.appendChild(dayDiv);
+    calendarDaysElement.appendChild(dayDiv);
             }
         }
 
-        prevMonthButton.addEventListener('click', function() {
-            currentDate.setMonth(currentDate.getMonth() - 1);
-            renderCalendar(currentDate);
-        });
-
-        nextMonthButton.addEventListener('click', function() {
-            currentDate.setMonth(currentDate.getMonth() + 1);
-            renderCalendar(currentDate);
-        });
-
-        addEventForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const title = document.getElementById('eventTitle').value;
-            const date = document.getElementById('eventDate').value;
-            const time = document.getElementById('eventTime').value;
-
-            events.push({ title, date, time });
-            localStorage.setItem('events', JSON.stringify(events));
-
-            document.getElementById('eventTitle').value = '';
-            document.getElementById('eventDate').value = '';
-            document.getElementById('eventTime').value = '';
-
-            renderCalendar(currentDate);
-            scheduleNotification(title, date, time);
-        });
-
-        function scheduleNotification(title, date, time) {
-            const eventDateTime = new Date(`${date}T${time}`);
-            const currentTime = new Date();
-            const timeDifference = eventDateTime - currentTime;
-
-            if (timeDifference > 0) {
-                setTimeout(() => {
-                    alert(`Event Reminder: ${title} at ${time}`);
-                }, timeDifference);
-            }
-        }
-
-        renderCalendar(currentDate);
+    prevMonthButton.addEventListener('click', function () {
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      renderCalendar(currentDate);
     });
-    </script>
+
+    nextMonthButton.addEventListener('click', function () {
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      renderCalendar(currentDate);
+    });
+
+    addEventForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const title = document.getElementById('eventTitle').value;
+      const date = document.getElementById('eventDate').value;
+      const time = document.getElementById('eventTime').value;
+
+      events.push({ title, date, time });
+      localStorage.setItem('events', JSON.stringify(events));
+
+      document.getElementById('eventTitle').value = '';
+      document.getElementById('eventDate').value = '';
+      document.getElementById('eventTime').value = '';
+
+      renderCalendar(currentDate);
+      scheduleNotification(title, date, time);
+    });
+
+    function scheduleNotification(title, date, time) {
+      const eventDateTime = new Date(${ date }T${ time });
+      const currentTime = new Date();
+      const timeDifference = eventDateTime - currentTime;
+
+      if (timeDifference > 0) {
+        setTimeout(() => {
+          alert(Event Reminder: ${ title } at ${ time });
+        }, timeDifference);
+      }
+    }
+
+    renderCalendar(currentDate);
+
+    const sendButton = document.querySelector('');
+    const messageInput = document.querySelector('');
+    const messagesArea = document.querySelector('');
+
+    sendButton.addEventListener('click', async function () {
+      const userMessage = messageInput.value;
+      if (!userMessage) return;
+
+      // Display user message
+      const userMessageDiv = document.createElement('div');
+      userMessageDiv.classList.add('message', 'user-message');
+      userMessageDiv.textContent = userMessage;
+      messagesArea.appendChild(userMessageDiv);
+
+      // Send message to backend
+      const response = await fetch('/api/chat/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: userMessage })
+      });
+
+      const aiResponse = await response.json();
+
+      // Display AI response
+      const aiMessageDiv = document.createElement('div');
+      aiMessageDiv.classList.add('');
+      aiMessageDiv.textContent = aiResponse.message;
+      messagesArea.appendChild(aiMessageDiv);
+
+      // Clear input
+      messageInput.value = '';
+    });
+      });
+  </script>
 }

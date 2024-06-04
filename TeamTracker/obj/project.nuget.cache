@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oqZQV5at1+mGyWgh8uVo5pqEFiu6wjtiKHEq2tQLHY5jndYn/VsGg8Qgo7lpD1L7SpAPCQOTp54o3fXkA1nfcw==",
+  "dgSpecHash": "NqzIUwxBX3CcnkoYQys3Lly+VbPBfocjINHu0YF3xhtJP15jKVhwul/dEPs3IcyyOMEL1JO7uhmMK3TQM9qW6A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\IT\\Desktop\\TeamTracker\\TeamTracker\\TeamTracker.csproj",
+  "projectFilePath": "C:\\Development\\TeamTracker\\TeamTracker\\TeamTracker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\IT\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\IT\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

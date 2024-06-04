@@ -17,123 +17,123 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TeamTracker
 build_property.RootNamespace = TeamTracker
-build_property.ProjectDir = C:\Users\IT\Desktop\TeamTracker\TeamTracker\
+build_property.ProjectDir = C:\Development\TeamTracker\TeamTracker\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\IT\Desktop\TeamTracker\TeamTracker
+build_property.MSBuildProjectDirectory = C:\Development\TeamTracker\TeamTracker
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Projects/Create.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Projects/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Projects/Delete.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Projects/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Projects/Details.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Projects/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Projects/Edit.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Projects/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Projects/Index.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Projects/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Shared/Error.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Users/Edit.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Users/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Users/Profile.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Users/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Users/SignUp.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Users/SignUp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcU2lnblVwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/WorkSpace/Space.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/WorkSpace/Space.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya1NwYWNlXFNwYWNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/WorkSpace/_appendPhaseInfo.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/WorkSpace/_appendPhaseInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya1NwYWNlXF9hcHBlbmRQaGFzZUluZm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/WorkSpace/_appendTaskInfo.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/WorkSpace/_appendTaskInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya1NwYWNlXF9hcHBlbmRUYXNrSW5mby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/WorkSpace/_appendTasks.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/WorkSpace/_appendTasks.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya1NwYWNlXF9hcHBlbmRUYXNrcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/WorkSpace/_editPhase.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/WorkSpace/_editPhase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya1NwYWNlXF9lZGl0UGhhc2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/_ViewImports.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/_ViewStart.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Articles/BMC.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Articles/BMC.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZXNcQk1DLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-oe8itzzkuh
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Articles/Deployment.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Articles/Deployment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZXNcRGVwbG95bWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-deu0nup80k
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Articles/Index.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Articles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-8hydx6duei
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Articles/POMODORO.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Articles/POMODORO.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZXNcUE9NT0RPUk8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-frpgfn64y6
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Articles/Software.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Articles/Software.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZXNcU29mdHdhcmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-rzk85f505a
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Articles/WebDevelopment.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Articles/WebDevelopment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNsZXNcV2ViRGV2ZWxvcG1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-arzyjhng22
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Home/AboutUs.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Home/AboutUs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dFVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-t53rrdixfg
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Home/Content.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Home/Content.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250ZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-ho8hl2ztas
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Home/Index.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-27bfe23qpd
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Projects/Join.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Projects/Join.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdHNcSm9pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-nbihocn94e
 
-[C:/Users/IT/Desktop/TeamTracker/TeamTracker/Views/Shared/_Layout.cshtml]
+[C:/Development/TeamTracker/TeamTracker/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-1y4rn3d1s8
